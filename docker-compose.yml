@@ -1,0 +1,43 @@
+version: "3"
+
+services:
+  evcc:
+    command:
+      - evcc
+    container_name: evcc
+    image: docker.io/evcc/evcc:0.205.0
+    ports:
+      - 7070:7070/tcp
+      - 8887:8887/tcp
+    volumes:
+      - ./evcc-provisioning/evcc.yaml:/etc/evcc.yaml
+      - ./evcc-provisioning/dot-evcc:/root/.evcc
+    restart: unless-stopped
+
+  influxdb:
+    image: docker.io/influxdb:1.8
+    ports:
+      - '8086:8086'
+    volumes:
+      - influxdb-storage:/var/lib/influxdb
+    environment:
+      - INFLUXDB_DB=db0
+      - INFLUXDB_ADMIN_USER=${INFLUXDB_USERNAME}
+      - INFLUXDB_ADMIN_PASSWORD=${INFLUXDB_PASSWORD}
+
+  grafana:
+    image: docker.io/grafana/grafana:12.0.2
+    ports:
+      - '3000:3000'
+    volumes:
+      - grafana-storage:/var/lib/grafana
+      - ./grafana-provisioning/:/etc/grafana/provisioning
+    depends_on:
+      - influxdb
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_USERNAME}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
+volumes:
+  influxdb-storage:
+  chronograf-storage:
+  grafana-storage:
