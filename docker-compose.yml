@@ -39,5 +39,4 @@ services:
       - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
 volumes:
   influxdb-storage:
-  chronograf-storage:
   grafana-storage:
