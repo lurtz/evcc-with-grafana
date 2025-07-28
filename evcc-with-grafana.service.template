@@ -3,7 +3,7 @@ Description=evcc with grafana container
 After=network.target
 
 [Service]
-WorkingDirectory=/home/lutz/workspace/evcc-with-grafana
+WorkingDirectory=@EVCC_WITH_GRAFANA_WORKING_DIRECTORY@
 ExecStartPre=git pull
 ExecStart=make up-systemd
 ExecStop=make down
