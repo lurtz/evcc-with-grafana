@@ -5,9 +5,8 @@ After=network.target
 [Service]
 WorkingDirectory=/home/lutz/workspace/evcc-with-grafana
 ExecStartPre=git pull
-ExecStartPre=podman-compose pull
-ExecStart=podman-compose up
-ExecStop=podman-compose down
+ExecStart=make up-systemd
+ExecStop=make down
 
 [Install]
 WantedBy=default.target

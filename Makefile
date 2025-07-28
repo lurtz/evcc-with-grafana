@@ -15,5 +15,9 @@ up:
 	podman-compose pull
 	podman-compose up -d
 
+up-systemd:
+	podman-compose pull
+	podman-compose up
+
 down:
 	podman-compose down
