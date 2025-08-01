@@ -31,6 +31,14 @@ services:
       - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=${INFLUXDB_ADMIN_TOKEN}
     restart: unless-stopped
 
+  victoria-metrics:
+    image: docker.io/victoriametrics/victoria-metrics
+    ports:
+      - "8428:8428"
+    volumes:
+      - victoriametrics-volume:/victoria-metrics-data
+    restart: unless-stopped
+
   grafana:
     image: docker.io/grafana/grafana-oss:12.1.0
     ports:
@@ -51,3 +59,4 @@ services:
 volumes:
   influxdb-storage:
   grafana-storage:
+  victoriametrics-volume:
