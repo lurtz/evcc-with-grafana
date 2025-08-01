@@ -1,0 +1,38 @@
+# open evcc at http://evcc.local:7070
+network:
+  schema: http
+  host: evcc.local # .local suffix announces the hostname on MDNS
+  port: 7070
+
+log: debug
+levels:
+  cache: error
+
+# unique installation id
+plant: <insert_here>
+
+interval: 30s # control cycle interval
+
+sponsortoken: <insert_here>
+
+# sponsors can set telemetry: true to enable anonymous data aggregation
+# see https://github.com/evcc-io/evcc/discussions/4554
+telemetry: false
+
+influx:
+  url: http://victoria-metrics:8428
+  database: db0
+  token: 1234567890abcdef
+  org: home
+
+meters:
+# add meters
+
+chargers:
+# add chargers
+
+loadpoints:
+# add loadpoints
+
+site:
+# add site
