@@ -13,22 +13,7 @@ services:
       - ./evcc-provisioning/evcc.yaml:/etc/evcc.yaml
       - ./evcc-provisioning/dot-evcc:/root/.evcc
     depends_on:
-      - influxdb
-    restart: unless-stopped
-
-  influxdb:
-    image: docker.io/influxdb:2.7.12
-    ports:
-      - '8086:8086'
-    volumes:
-      - influxdb-storage:/var/lib/influxdb2
-    environment:
-      - DOCKER_INFLUXDB_INIT_MODE=setup
-      - DOCKER_INFLUXDB_INIT_USERNAME=${INFLUXDB_USERNAME}
-      - DOCKER_INFLUXDB_INIT_PASSWORD=${INFLUXDB_PASSWORD}
-      - DOCKER_INFLUXDB_INIT_ORG=home
-      - DOCKER_INFLUXDB_INIT_BUCKET=db0
-      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=${INFLUXDB_ADMIN_TOKEN}
+      - victoria-metrics
     restart: unless-stopped
 
   victoria-metrics:
@@ -47,16 +32,14 @@ services:
       - grafana-storage:/var/lib/grafana
       - ./grafana-provisioning/:/etc/grafana/provisioning
     depends_on:
-      - influxdb
+      - victoria-metrics
     environment:
       - GF_SECURITY_ADMIN_USER=${GRAFANA_USERNAME}
       - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
       - GF_AUTH_ANONYMOUS_ENABLED=true
       - GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer
-      - INFLUXDB_TOKEN=${INFLUXDB_TOKEN}
     restart: unless-stopped
 
 volumes:
-  influxdb-storage:
   grafana-storage:
   victoriametrics-volume:
