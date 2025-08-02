@@ -11,6 +11,8 @@ At the Raspberry PI this can be done using `raspi-config`.
 
 - `GRAFANA_USERNAME`
 - `GRAFANA_PASSWORD`
+- `VICTORIAMETRICS_USER`
+- `VICTORIAMETRICS_PASSWORD`
 
 # TODO
 
