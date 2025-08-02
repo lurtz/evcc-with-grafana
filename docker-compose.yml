@@ -18,6 +18,15 @@ services:
 
   victoria-metrics:
     image: docker.io/victoriametrics/victoria-metrics
+    command:
+      [
+        "-httpAuth.username",
+        $VICTORIAMETRICS_USER,
+        "-httpAuth.password",
+        $VICTORIAMETRICS_PASSWORD,
+        -retentionPeriod,
+        100y
+      ]
     ports:
       - "8428:8428"
     volumes:
@@ -38,6 +47,8 @@ services:
       - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
       - GF_AUTH_ANONYMOUS_ENABLED=true
       - GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer
+      - VM_USER=${VICTORIAMETRICS_USER}
+      - VM_PASSWORD=${VICTORIAMETRICS_PASSWORD}
     restart: unless-stopped
 
 volumes:
