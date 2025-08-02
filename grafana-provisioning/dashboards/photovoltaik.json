@@ -93,6 +93,10 @@
               {
                 "id": "min",
                 "value": 0
+              },
+              {
+                "id": "max",
+                "value": 100
               }
             ]
           }
@@ -315,11 +319,23 @@
               },
               {
                 "params": [],
-                "type": "mean"
+                "type": "sum"
               }
             ]
           ],
-          "tags": []
+          "tags": [
+            {
+              "key": "id::tag",
+              "operator": "=",
+              "value": "1"
+            },
+            {
+              "condition": "OR",
+              "key": "id::tag",
+              "operator": "=",
+              "value": "2"
+            }
+          ]
         },
         {
           "datasource": {
@@ -704,5 +720,5 @@
   "timezone": "browser",
   "title": "Photovoltaik",
   "uid": "c0cf06af-fedf-49b3-af2b-a053381007b6",
-  "version": 1
+  "version": 2
 }
