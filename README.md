@@ -9,13 +9,12 @@ At the Raspberry PI this can be done using `raspi-config`.
 
 `credentials.env` must define the following environment variables:
 
-- `INFLUXDB_USERNAME`
-- `INFLUXDB_PASSWORD`
-- `INFLUXDB_ADMIN_TOKEN`
-- `INFLUXDB_TOKEN`
 - `GRAFANA_USERNAME`
 - `GRAFANA_PASSWORD`
+- `VICTORIAMETRICS_USER`
+- `VICTORIAMETRICS_PASSWORD`
 
 # TODO
 
 - [ ] add `credentials.env` template
+- [ ] TLS connection to the internet (letsencrypt)
