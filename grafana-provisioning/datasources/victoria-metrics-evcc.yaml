@@ -12,3 +12,13 @@ datasources:
     basicAuthUser: ${VM_USER}
     secureJsonData:
       basicAuthPassword: ${VM_PASSWORD}
+
+  - name: prometheus-evcc
+    type: prometheus
+    access: proxy
+    url: http://victoria-metrics:8428
+    isDefault: false
+    basicAuth: true
+    basicAuthUser: ${VM_USER}
+    secureJsonData:
+      basicAuthPassword: ${VM_PASSWORD}
