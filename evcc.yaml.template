@@ -20,10 +20,7 @@ sponsortoken: <insert_here>
 telemetry: false
 
 influx:
-  url: http://victoria-metrics:8428
-  database: db0
-  token: 1234567890abcdef
-  org: home
+  url: http://user:password@victoria-metrics:8428
 
 meters:
 # add meters
