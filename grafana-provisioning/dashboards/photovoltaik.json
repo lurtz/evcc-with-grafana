@@ -129,9 +129,9 @@
             "type": "victoriametrics-metrics-datasource",
             "uid": "P447A881CCE6EE299"
           },
-          "editorMode": "builder",
-          "expr": "pvPower_value",
-          "legendFormat": "__auto",
+          "editorMode": "code",
+          "expr": "sum(pvPower_value{id=~\".+\"})",
+          "legendFormat": "total pvPower",
           "range": true,
           "refId": "A"
         },
@@ -377,5 +377,5 @@
   "timezone": "browser",
   "title": "Photovoltaik",
   "uid": "c0cf06af-fedf-49b3-af2b-a053381007b6",
-  "version": 5
+  "version": 6
 }
