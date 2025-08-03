@@ -18,13 +18,13 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 2,
+  "id": 3,
   "links": [],
   "panels": [
     {
       "datasource": {
-        "type": "influxdb",
-        "uid": "P9472366384E77C8B"
+        "type": "victoriametrics-metrics-datasource",
+        "uid": "P447A881CCE6EE299"
       },
       "fieldConfig": {
         "defaults": {
@@ -83,7 +83,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "batterySoc value {id=\"1\"}"
+              "options": "batterySoc_value"
             },
             "properties": [
               {
@@ -103,12 +103,12 @@
         ]
       },
       "gridPos": {
-        "h": 20,
+        "h": 17,
         "w": 24,
         "x": 0,
         "y": 0
       },
-      "id": 3,
+      "id": 6,
       "options": {
         "legend": {
           "calcs": [],
@@ -126,56 +126,73 @@
       "targets": [
         {
           "datasource": {
-            "type": "influxdb",
-            "uid": "P9472366384E77C8B"
+            "type": "victoriametrics-metrics-datasource",
+            "uid": "P447A881CCE6EE299"
           },
-          "hide": false,
-          "query": "from(bucket: \"db0\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"pvPower\")\n  |> filter(fn: (r) => r[\"id\"] == \"1\" or r[\"id\"] == \"2\")\n  |> group(columns: [\"_measurement\"])\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> yield(name: \"sum\")",
-          "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "P9472366384E77C8B"
-          },
-          "hide": false,
-          "query": "from(bucket: \"db0\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"homePower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> yield(name: \"sum\")",
+          "editorMode": "code",
+          "expr": "sum(pvPower_value{id=~\".+\"})",
+          "legendFormat": "total pvPower",
+          "range": true,
           "refId": "A"
         },
         {
           "datasource": {
-            "type": "influxdb",
-            "uid": "P9472366384E77C8B"
+            "type": "victoriametrics-metrics-datasource",
+            "uid": "P447A881CCE6EE299"
           },
+          "editorMode": "builder",
+          "expr": "homePower_value",
           "hide": false,
-          "query": "from(bucket: \"db0\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"gridPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> yield(name: \"sum\")",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "victoriametrics-metrics-datasource",
+            "uid": "P447A881CCE6EE299"
+          },
+          "editorMode": "builder",
+          "expr": "gridPower_value",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
           "refId": "C"
         },
         {
           "datasource": {
-            "type": "influxdb",
-            "uid": "P9472366384E77C8B"
+            "type": "victoriametrics-metrics-datasource",
+            "uid": "P447A881CCE6EE299"
           },
+          "editorMode": "builder",
+          "expr": "chargePower_value",
           "hide": false,
-          "query": "from(bucket: \"db0\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"chargePower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> yield(name: \"sum\")",
+          "legendFormat": "__auto",
+          "range": true,
           "refId": "D"
         },
         {
           "datasource": {
-            "type": "influxdb",
-            "uid": "P9472366384E77C8B"
+            "type": "victoriametrics-metrics-datasource",
+            "uid": "P447A881CCE6EE299"
           },
+          "editorMode": "builder",
+          "expr": "batteryPower_value",
           "hide": false,
-          "query": "from(bucket: \"db0\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"batteryPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> yield(name: \"sum\")",
+          "legendFormat": "__auto",
+          "range": true,
           "refId": "E"
         },
         {
           "datasource": {
-            "type": "influxdb",
-            "uid": "P9472366384E77C8B"
+            "type": "victoriametrics-metrics-datasource",
+            "uid": "P447A881CCE6EE299"
           },
+          "editorMode": "builder",
+          "expr": "batterySoc_value",
           "hide": false,
-          "query": "from(bucket: \"db0\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"batterySoc\")\n  |> filter(fn: (r) => r[\"_field\"] == \"value\")\n  |> filter(fn: (r) => r[\"id\"] == \"1\")",
+          "legendFormat": "__auto",
+          "range": true,
           "refId": "F"
         }
       ],
@@ -184,372 +201,8 @@
     },
     {
       "datasource": {
-        "type": "influxdb",
-        "uid": "P4B4C651E6C6942CA"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 6,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": true,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green"
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "watt"
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "batterySoc.mean"
-            },
-            "properties": [
-              {
-                "id": "unit",
-                "value": "percent"
-              },
-              {
-                "id": "min",
-                "value": 0
-              },
-              {
-                "id": "max",
-                "value": 100
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 22,
-        "w": 24,
-        "x": 0,
-        "y": 20
-      },
-      "id": 5,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "hideZeros": false,
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "12.0.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "P4B4C651E6C6942CA"
-          },
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "measurement": "pvPower",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "A",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "sum"
-              }
-            ]
-          ],
-          "tags": [
-            {
-              "key": "id::tag",
-              "operator": "=",
-              "value": "1"
-            },
-            {
-              "condition": "OR",
-              "key": "id::tag",
-              "operator": "=",
-              "value": "2"
-            }
-          ]
-        },
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "P4B4C651E6C6942CA"
-          },
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "hide": false,
-          "measurement": "homePower",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "P4B4C651E6C6942CA"
-          },
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "hide": false,
-          "measurement": "gridPower",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "C",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "P4B4C651E6C6942CA"
-          },
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "hide": false,
-          "measurement": "chargePower",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "D",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "P4B4C651E6C6942CA"
-          },
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "hide": false,
-          "measurement": "batteryPower",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "E",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        },
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "P4B4C651E6C6942CA"
-          },
-          "groupBy": [
-            {
-              "params": [
-                "$__interval"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "null"
-              ],
-              "type": "fill"
-            }
-          ],
-          "hide": false,
-          "measurement": "batterySoc",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "F",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              }
-            ]
-          ],
-          "tags": []
-        }
-      ],
-      "title": "Rein / raus 2",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "influxdb",
-        "uid": "P9472366384E77C8B"
+        "type": "victoriametrics-metrics-datasource",
+        "uid": "P447A881CCE6EE299"
       },
       "fieldConfig": {
         "defaults": {
@@ -618,6 +271,10 @@
               {
                 "id": "min",
                 "value": 0
+              },
+              {
+                "id": "max",
+                "value": 100
               }
             ]
           }
@@ -627,7 +284,7 @@
         "h": 20,
         "w": 24,
         "x": 0,
-        "y": 42
+        "y": 17
       },
       "id": 4,
       "options": {
@@ -647,59 +304,14 @@
       "targets": [
         {
           "datasource": {
-            "type": "influxdb",
-            "uid": "P9472366384E77C8B"
+            "type": "victoriametrics-metrics-datasource",
+            "uid": "P447A881CCE6EE299"
           },
-          "hide": true,
-          "query": "from(bucket: \"db0\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"pvPower\")\n  |> filter(fn: (r) => r[\"id\"] == \"1\" or r[\"id\"] == \"2\")\n  |> group(columns: [\"_measurement\"])\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> yield(name: \"sum\")",
-          "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "P9472366384E77C8B"
-          },
-          "hide": true,
-          "query": "from(bucket: \"db0\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"homePower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> yield(name: \"sum\")",
+          "editorMode": "code",
+          "expr": "sum(pvPower_value{id=~\".+\"}) - homePower_value + gridPower_value + sum(batteryPower_value{id=~\".+\"}) - sum(chargePower_value)",
+          "legendFormat": "__auto",
+          "range": true,
           "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "P9472366384E77C8B"
-          },
-          "hide": true,
-          "query": "from(bucket: \"db0\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"gridPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> yield(name: \"sum\")",
-          "refId": "C"
-        },
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "P9472366384E77C8B"
-          },
-          "hide": true,
-          "query": "from(bucket: \"db0\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"chargePower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> yield(name: \"sum\")",
-          "refId": "D"
-        },
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "P9472366384E77C8B"
-          },
-          "hide": true,
-          "query": "from(bucket: \"db0\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"batteryPower\")\n  |> aggregateWindow(every: v.windowPeriod, fn: sum, createEmpty: false)\n  |> yield(name: \"sum\")",
-          "refId": "E"
-        },
-        {
-          "datasource": {
-            "name": "Expression",
-            "type": "__expr__",
-            "uid": "__expr__"
-          },
-          "expression": "-$A + $B + $C + $E - $D",
-          "hide": false,
-          "refId": "F",
-          "type": "math"
         }
       ],
       "title": "Probe",
@@ -720,5 +332,5 @@
   "timezone": "browser",
   "title": "Photovoltaik",
   "uid": "c0cf06af-fedf-49b3-af2b-a053381007b6",
-  "version": 2
+  "version": 10
 }
