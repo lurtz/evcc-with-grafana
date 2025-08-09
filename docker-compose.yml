@@ -51,6 +51,21 @@ services:
       - VM_PASSWORD=${VICTORIAMETRICS_PASSWORD}
     restart: unless-stopped
 
+  telegraf:
+    cap_add:
+      - cap_net_raw
+    image: docker.io/telegraf:1.35
+    volumes:
+      - ./telegraf-provisioning:/etc/telegraf:ro
+      - /proc:/target_proc:ro
+    depends_on:
+      - victoria-metrics
+    environment:
+      - HOST_PROC=/target_proc
+      - VM_USER=${VICTORIAMETRICS_USER}
+      - VM_PASSWORD=${VICTORIAMETRICS_PASSWORD}
+    restart: unless-stopped
+
 volumes:
   grafana-storage:
   victoriametrics-volume:
