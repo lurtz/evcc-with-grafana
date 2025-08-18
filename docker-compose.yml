@@ -34,7 +34,7 @@ services:
     restart: unless-stopped
 
   grafana:
-    image: docker.io/grafana/grafana-oss:12.1.0
+    image: docker.io/grafana/grafana-oss:12.1.1
     ports:
       - '3000:3000'
     volumes:
