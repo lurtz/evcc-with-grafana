@@ -1,0 +1,35 @@
+name: Test
+
+on:
+  workflow_dispatch:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: sudo make install-podman
+      - name: Run tests
+        run: test/smoke_test.sh
+
+  service-works:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: sudo make install-podman
+      - name: Create fake configuration
+        run: |
+          source test/functions.sh
+          write_fake_credentials
+          write_fake_evcc_config
+      - name: Install and run service
+        run: make install-service
+      - name: Check that service is running
+        run: systemctl --user is-active evcc-with-grafana
+
