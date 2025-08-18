@@ -3,11 +3,11 @@ Docker setup to run evcc with time series database and grafana. evcc, InfluxDB a
 
 # Setup
 
-To setup create a file `credentials.env` in this repo and call `make install-podman` and `make install-service`.
+To setup create a file `.env` in this repo and call `make install-podman` and `make install-service`.
 For automatic startups the user needs to be automatically logged in at startup.
 At the Raspberry PI this can be done using `raspi-config`.
 
-`credentials.env` must define the following environment variables:
+`.env` must define the following environment variables:
 
 - `GRAFANA_USERNAME`
 - `GRAFANA_PASSWORD`
@@ -16,5 +16,4 @@ At the Raspberry PI this can be done using `raspi-config`.
 
 # TODO
 
-- [ ] add `credentials.env` template
 - [ ] TLS connection to the internet (letsencrypt)

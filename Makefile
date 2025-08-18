@@ -1,6 +1,3 @@
-include credentials.env
-export $(shell sed 's/=.*//' credentials.env)
-
 .PHONY: install-podman
 install-podman:
 	apt-get install -y podman-compose podman-docker
@@ -20,13 +17,11 @@ install-service: evcc-with-grafana.service
 
 .PHONY: up
 up:
-	podman-compose pull
-	podman-compose up -d
+	podman-compose up --pull --detach
 
 .PHONY: up-systemd
 up-systemd:
-	podman-compose pull
-	podman-compose up
+	podman-compose up --pull
 
 .PHONY: down
 down:
