@@ -46,26 +46,3 @@ function startup_starts_all_containers_with_credentials_setup() {
 startup_starts_all_containers_with_credentials_setup
 
 echo -e "\nAll tests passed\n"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

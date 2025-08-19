@@ -3,7 +3,7 @@
 function setup() {
 	# Restore old state exit
 	# TODO Running the tests in a container would be more robust
-	trap "make down; mv .env-back .env; mv evcc-provisioning/evcc.yaml-back evcc-provisioning/evcc.yaml" EXIT
+	trap "make uninstall-service || true; make down; mv .env-back .env; mv evcc-provisioning/evcc.yaml-back evcc-provisioning/evcc.yaml" EXIT
 
 	# Save previous state
 	touch .env

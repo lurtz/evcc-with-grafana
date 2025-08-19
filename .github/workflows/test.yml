@@ -23,13 +23,5 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install dependencies
         run: sudo make install-podman
-      - name: Create fake configuration
-        run: |
-          source test/functions.sh
-          write_fake_credentials
-          write_fake_evcc_config
-      - name: Install and run service
-        run: make install-service
-      - name: Check that service is running
-        run: systemctl --user is-active evcc-with-grafana
-
+      - name: Run tests
+        run: test/service_test.sh
