@@ -4,7 +4,6 @@ After=network.target
 
 [Service]
 WorkingDirectory=@EVCC_WITH_GRAFANA_WORKING_DIRECTORY@
-ExecStartPre=git pull
 ExecStart=make up-systemd
 ExecStop=make down
 
