@@ -33,7 +33,7 @@ levels:
   cache: error
 
 # unique installation id
-plant: 66666662fe172da0b3c701997ee9d78dc8a27deff1f09634f1a7e24439700a28
+plant: 6666666666666666666666666666666666666666666666666666666666666666
 
 interval: 30s # control cycle interval
 
