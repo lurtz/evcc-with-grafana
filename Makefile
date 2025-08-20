@@ -10,10 +10,17 @@ evcc-with-grafana.service: evcc-with-grafana.service.template
 .PHONY: install-service
 install-service: evcc-with-grafana.service
 	mkdir -p ~/.config/systemd/user
-	cp evcc-with-grafana.service ~/.config/systemd/user/
+	mv evcc-with-grafana.service ~/.config/systemd/user/
 	systemctl --user daemon-reload
 	systemctl --user start evcc-with-grafana.service
 	systemctl --user enable evcc-with-grafana.service
+
+.PHONY: uninstall-service
+uninstall-service:
+	systemctl --user stop evcc-with-grafana.service
+	systemctl --user disable evcc-with-grafana.service
+	rm -f ~/.config/systemd/user/evcc-with-grafana.service
+	systemctl --user daemon-reload
 
 .PHONY: up
 up:
