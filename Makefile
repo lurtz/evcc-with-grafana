@@ -12,7 +12,7 @@ install-service: evcc-with-grafana.service
 	mkdir -p ~/.config/systemd/user
 	mv evcc-with-grafana.service ~/.config/systemd/user/
 	systemctl --user daemon-reload
-	systemctl --user start evcc-with-grafana.service || systemctl --user status evcc-with-grafana && false
+	systemctl --user start evcc-with-grafana.service
 	systemctl --user enable evcc-with-grafana.service
 
 .PHONY: uninstall-service
