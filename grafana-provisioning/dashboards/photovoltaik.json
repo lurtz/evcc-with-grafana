@@ -18,7 +18,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 3,
+  "id": 2,
   "links": [],
   "panels": [
     {
@@ -180,7 +180,7 @@
           "editorMode": "builder",
           "expr": "chargePower_value",
           "hide": false,
-          "legendFormat": "__auto",
+          "legendFormat": "chargePower {{loadpoint}}",
           "range": true,
           "refId": "D"
         },
@@ -374,7 +374,7 @@
           "editorMode": "code",
           "expr": "-chargePower_value",
           "hide": false,
-          "legendFormat": "__auto",
+          "legendFormat": "chargePower {{loadpoint}}",
           "range": true,
           "refId": "E"
         }
@@ -915,5 +915,5 @@
   "timezone": "browser",
   "title": "Photovoltaik",
   "uid": "c0cf06af-fedf-49b3-af2b-a053381007b6",
-  "version": 13
+  "version": 8
 }
