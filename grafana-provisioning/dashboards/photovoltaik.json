@@ -249,6 +249,220 @@
             "spanNulls": false,
             "stacking": {
               "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "watt"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "batterySoc_value{id=~\".+\"}"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "custom.stacking",
+                "value": {
+                  "group": "A",
+                  "mode": "none"
+                }
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "min",
+                "value": 0
+              },
+              {
+                "id": "max",
+                "value": 100
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 16,
+        "w": 24,
+        "x": 0,
+        "y": 17
+      },
+      "id": 11,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "hidden",
+          "placement": "right",
+          "showLegend": false
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "victoriametrics-metrics-datasource",
+            "uid": "P447A881CCE6EE299"
+          },
+          "editorMode": "code",
+          "expr": "pvPower_value{id=\"\"}",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "victoriametrics-metrics-datasource",
+            "uid": "P447A881CCE6EE299"
+          },
+          "editorMode": "code",
+          "expr": "-(abs(gridPower_value) - gridPower_value) / 2",
+          "hide": false,
+          "legendFormat": "Einspeisung",
+          "range": true,
+          "refId": "Einspeisung"
+        },
+        {
+          "datasource": {
+            "type": "victoriametrics-metrics-datasource",
+            "uid": "P447A881CCE6EE299"
+          },
+          "editorMode": "code",
+          "expr": "(abs(gridPower_value) + gridPower_value) / 2",
+          "hide": false,
+          "legendFormat": "Netzbezug",
+          "range": true,
+          "refId": "Netzbezug"
+        },
+        {
+          "datasource": {
+            "type": "victoriametrics-metrics-datasource",
+            "uid": "P447A881CCE6EE299"
+          },
+          "editorMode": "code",
+          "expr": "-(abs(batteryPower_value{id=\"\"}) - batteryPower_value{id=\"\"}) / 2",
+          "hide": false,
+          "legendFormat": "Speicher laden",
+          "range": true,
+          "refId": "Speicher laden"
+        },
+        {
+          "datasource": {
+            "type": "victoriametrics-metrics-datasource",
+            "uid": "P447A881CCE6EE299"
+          },
+          "editorMode": "code",
+          "expr": "(abs(batteryPower_value{id=\"\"}) + batteryPower_value{id=\"\"}) / 2",
+          "hide": false,
+          "legendFormat": "Speicher entladen",
+          "range": true,
+          "refId": "Speicher entladen"
+        },
+        {
+          "datasource": {
+            "type": "victoriametrics-metrics-datasource",
+            "uid": "P447A881CCE6EE299"
+          },
+          "editorMode": "code",
+          "expr": "-homePower_value",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "victoriametrics-metrics-datasource",
+            "uid": "P447A881CCE6EE299"
+          },
+          "editorMode": "code",
+          "expr": "-chargePower_value",
+          "hide": false,
+          "legendFormat": "chargePower {{loadpoint}}",
+          "range": true,
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "victoriametrics-metrics-datasource",
+            "uid": "P447A881CCE6EE299"
+          },
+          "editorMode": "code",
+          "expr": "batterySoc_value{id=~\".+\"}",
+          "hide": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Energieverteilung",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "victoriametrics-metrics-datasource",
+        "uid": "P447A881CCE6EE299"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "bars",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
               "mode": "percent"
             },
             "thresholdsStyle": {
@@ -277,7 +491,7 @@
         "h": 9,
         "w": 24,
         "x": 0,
-        "y": 17
+        "y": 33
       },
       "id": 10,
       "options": {
@@ -512,7 +726,7 @@
         "h": 10,
         "w": 24,
         "x": 0,
-        "y": 26
+        "y": 42
       },
       "id": 9,
       "options": {
@@ -667,7 +881,7 @@
         "h": 11,
         "w": 24,
         "x": 0,
-        "y": 36
+        "y": 52
       },
       "id": 4,
       "options": {
@@ -767,7 +981,7 @@
         "h": 14,
         "w": 12,
         "x": 0,
-        "y": 47
+        "y": 63
       },
       "id": 7,
       "options": {
@@ -866,7 +1080,7 @@
         "h": 14,
         "w": 12,
         "x": 12,
-        "y": 47
+        "y": 63
       },
       "id": 8,
       "options": {
@@ -915,5 +1129,5 @@
   "timezone": "browser",
   "title": "Photovoltaik",
   "uid": "c0cf06af-fedf-49b3-af2b-a053381007b6",
-  "version": 8
+  "version": 9
 }
