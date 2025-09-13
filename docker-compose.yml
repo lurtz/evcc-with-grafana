@@ -17,7 +17,7 @@ services:
     restart: unless-stopped
 
   victoria-metrics:
-    image: docker.io/victoriametrics/victoria-metrics:v1.124.0
+    image: docker.io/victoriametrics/victoria-metrics:v1.125.1
     command:
       [
         "-httpAuth.username",
