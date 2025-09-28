@@ -54,7 +54,7 @@ services:
   telegraf:
     cap_add:
       - cap_net_raw
-    image: docker.io/telegraf:1.35
+    image: docker.io/telegraf:1.36
     volumes:
       - ./telegraf-provisioning:/etc/telegraf:ro
       - /proc:/target_proc:ro
