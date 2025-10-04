@@ -16,6 +16,15 @@ At the Raspberry PI this can be done using `raspi-config`.
 
 # Howto development versions of evcc
 
+Patch [docker-compose.yml](docker-compose.yml)
+
+```bash
+git apply own-build.patch
+```
+
+Then build evcc and rebuild the container.
+Make sure that the base image version in [evcc-own-build.Dockerfile](evcc-own-build.Dockerfile) approximately matches that of the code (nightly version or release).
+
 ```
 cd evcc
 devcontainer up --workspace-folder .
