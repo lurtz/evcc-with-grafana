@@ -14,6 +14,20 @@ At the Raspberry PI this can be done using `raspi-config`.
 - `VICTORIAMETRICS_USER`
 - `VICTORIAMETRICS_PASSWORD`
 
+# Howto development versions of evcc
+
+```
+cd evcc
+devcontainer up --workspace-folder .
+devcontainer exec --workspace-folder . bash
+make build
+exit
+cp evcc ../evcc-with-grafana/evcc-bin
+systemctl --user stop evcc-with-grafana
+podman rmi localhost/evcc-with-grafana_evcc:latest
+systemctl --user start evcc-with-grafana
+```
+
 # TODO
 
 - [ ] TLS connection to the internet (letsencrypt)
