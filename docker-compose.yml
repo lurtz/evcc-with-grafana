@@ -5,7 +5,7 @@ services:
     command:
       - evcc
     container_name: evcc
-    image: docker.io/evcc/evcc:0.208.1
+    image: docker.io/evcc/evcc:0.209.0
     ports:
       - 7070:7070/tcp
       - 8887:8887/tcp
