@@ -5,7 +5,9 @@ services:
     command:
       - evcc
     container_name: evcc
-    image: docker.io/evcc/evcc:0.209.0
+    image: $IMAGE_NAME
+    # Could have been the following, but https://github.com/containers/podman-compose/issues/127
+    # build: https://github.com/lurtz/evcc.git#0.209.2-lurtz
     ports:
       - 7070:7070/tcp
       - 8887:8887/tcp

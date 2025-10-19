@@ -1,3 +1,4 @@
 evcc-provisioning/evcc.yaml
 evcc-provisioning/dot-evcc
 .env
+.image_track_dir
