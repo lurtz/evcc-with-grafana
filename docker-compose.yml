@@ -5,7 +5,7 @@ services:
     command:
       - evcc
     container_name: evcc
-    image: docker.io/ellutzor/evcc:0.210.2-lurtz
+    image: docker.io/ellutzor/evcc:0.211.0-lurtz
     ports:
       - 7070:7070/tcp
       - 8887:8887/tcp
