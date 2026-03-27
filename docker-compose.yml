@@ -17,7 +17,7 @@ services:
     restart: unless-stopped
 
   victoria-metrics:
-    image: docker.io/victoriametrics/victoria-metrics:v1.137.0
+    image: docker.io/victoriametrics/victoria-metrics:v1.138.0
     command: [ "-httpAuth.username", $VICTORIAMETRICS_USER, "-httpAuth.password", $VICTORIAMETRICS_PASSWORD, -retentionPeriod, 100y ]
     ports:
       - "8428:8428"
@@ -26,7 +26,7 @@ services:
     restart: unless-stopped
 
   grafana:
-    image: docker.io/grafana/grafana-oss:12.4.0
+    image: docker.io/grafana/grafana-oss:12.4.2
     ports:
       - '3000:3000'
     volumes:
@@ -46,7 +46,7 @@ services:
   telegraf:
     cap_add:
       - cap_net_raw
-    image: docker.io/telegraf:1.37
+    image: docker.io/telegraf:1.38
     volumes:
       - ./telegraf-provisioning:/etc/telegraf:ro
       - /proc:/target_proc:ro
