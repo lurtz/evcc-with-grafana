@@ -84,7 +84,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "batterySoc_value{id=~\".+\"}"
+              "options": "batterySoc_value{id=\"1\"}"
             },
             "properties": [
               {
@@ -104,7 +104,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "batterySoc_value{id=~\".+\"}"
+              "options": "batterySoc_value{id=\"1\"}"
             },
             "properties": [
               {
@@ -199,6 +199,7 @@
           },
           "editorMode": "code",
           "expr": "batterySoc_value{id=~\".+\"}",
+          "format": "time_series",
           "legendFormat": "__auto",
           "range": true,
           "refId": "F"
@@ -264,7 +265,7 @@
         "y": 17
       },
       "id": 13,
-      "interval": "48h",
+      "interval": "24h",
       "options": {
         "barRadius": 0,
         "barWidth": 0.97,
@@ -378,6 +379,7 @@
           },
           "editorMode": "code",
           "expr": "(batteryEnergy_value{id!~\".+\"} offset -1d - batteryEnergy_value{id!~\".+\"} offset 0d) * 1000",
+          "format": "time_series",
           "legendFormat": "Batterrie entladen",
           "range": true,
           "refId": "G"
@@ -450,7 +452,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "batterySoc_value{id=~\".+\"}"
+              "options": "batterySoc_value{id=\"1\"}"
             },
             "properties": [
               {
@@ -586,6 +588,7 @@
           },
           "editorMode": "code",
           "expr": "batterySoc_value{id=~\".+\"}",
+          "format": "time_series",
           "legendFormat": "__auto",
           "range": true,
           "refId": "B"
@@ -823,7 +826,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "batterySoc_value{id=~\".+\"}"
+              "options": "batterySoc_value{id=\"1\"}"
             },
             "properties": [
               {
@@ -847,7 +850,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "batteryEnergy_value{id=~\".+\"}"
+              "options": "batteryEnergy_value{id=\"1\"}"
             },
             "properties": [
               {
@@ -859,7 +862,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "batteryPower_value{id=~\".+\"}"
+              "options": "batteryPower_value{id=\"1\"}"
             },
             "properties": [
               {
@@ -871,7 +874,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "batteryCapacity_value{id=~\"\"}"
+              "options": "batteryCapacity_value"
             },
             "properties": [
               {
@@ -948,6 +951,7 @@
           },
           "editorMode": "code",
           "expr": "batterySoc_value{id=~\".+\"}",
+          "format": "time_series",
           "legendFormat": "__auto",
           "range": true,
           "refId": "D"
@@ -1391,6 +1395,6 @@
   "timezone": "browser",
   "title": "Photovoltaik",
   "uid": "c0cf06af-fedf-49b3-af2b-a053381007b6",
-  "version": 14,
+  "version": 1,
   "weekStart": ""
 }
