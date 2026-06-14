@@ -1,0 +1,12 @@
+{
+    "name": "evcc-with-grafana",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    //   "containerUser": "root",
+    //   "remoteUser": "root",
+    "postCreateCommand": "sudo apt-get update && sudo make install-podman",
+    "runArgs": [
+        "--privileged"
+    ]
+}
