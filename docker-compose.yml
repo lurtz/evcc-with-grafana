@@ -5,7 +5,7 @@ services:
     command:
       - evcc
     container_name: evcc
-    image: docker.io/ellutzor/evcc:0.309.1-lurtz
+    image: docker.io/ellutzor/evcc:0.312.1-lurtz
     ports:
       - 7070:7070/tcp
       - 8887:8887/tcp
@@ -17,7 +17,7 @@ services:
     restart: unless-stopped
 
   victoria-metrics:
-    image: docker.io/victoriametrics/victoria-metrics:v1.147.0
+    image: docker.io/victoriametrics/victoria-metrics:v1.148.0
     command: [ "-httpAuth.username", $VICTORIAMETRICS_USER, "-httpAuth.password", $VICTORIAMETRICS_PASSWORD, -retentionPeriod, 100y ]
     ports:
       - "8428:8428"
