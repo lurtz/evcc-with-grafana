@@ -7,6 +7,12 @@
     //   "remoteUser": "root",
     "postCreateCommand": "sudo apt-get update && sudo make install-podman",
     "runArgs": [
-        "--privileged"
+        "--cap-add=SYS_ADMIN",
+        "--cap-add=NET_ADMIN",
+        "--cap-add=MKNOD",
+        "--device=/dev/fuse",
+        "--device=/dev/net/tun",
+        "--security-opt=seccomp=unconfined",
+        "--security-opt=apparmor=unconfined"
     ]
 }

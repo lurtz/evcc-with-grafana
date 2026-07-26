@@ -6,7 +6,7 @@ datasources:
   - name: VictoriaMetrics-evcc
     type: victoriametrics-metrics-datasource
     access: proxy
-    url: http://victoria-metrics:8428
+    url: http://192.168.1.230:8428
     isDefault: false
     basicAuth: true
     basicAuthUser: ${VM_USER}
@@ -16,7 +16,7 @@ datasources:
   - name: prometheus-evcc
     type: prometheus
     access: proxy
-    url: http://victoria-metrics:8428
+    url: http://192.168.1.230:8428
     isDefault: false
     basicAuth: true
     basicAuthUser: ${VM_USER}
