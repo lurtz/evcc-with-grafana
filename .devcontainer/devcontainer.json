@@ -3,9 +3,7 @@
     "build": {
         "dockerfile": "Dockerfile"
     },
-    //   "containerUser": "root",
-    //   "remoteUser": "root",
-    "postCreateCommand": "sudo apt-get update && sudo make install-podman",
+    "postCreateCommand": "sudo make install-podman",
     "runArgs": [
         "--cap-add=SYS_ADMIN",
         "--cap-add=NET_ADMIN",
