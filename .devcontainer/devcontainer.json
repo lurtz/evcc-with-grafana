@@ -5,12 +5,8 @@
     },
     "postCreateCommand": "sudo make install-podman",
     "runArgs": [
-        "--cap-add=SYS_ADMIN",
-        "--cap-add=NET_ADMIN",
-        "--cap-add=MKNOD",
+        "--privileged",
         "--device=/dev/fuse",
-        "--device=/dev/net/tun",
-        "--security-opt=seccomp=unconfined",
-        "--security-opt=apparmor=unconfined"
+        "--device=/dev/net/tun"
     ]
 }
