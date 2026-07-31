@@ -1,0 +1,12 @@
+{
+    "name": "evcc-with-grafana",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "postCreateCommand": "sudo make install-podman",
+    "runArgs": [
+        "--privileged",
+        "--device=/dev/fuse",
+        "--device=/dev/net/tun"
+    ]
+}
