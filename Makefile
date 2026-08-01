@@ -33,3 +33,35 @@ up-systemd:
 .PHONY: down
 down:
 	podman-compose down
+
+# new way to run evcc with grafana, using systemd service
+.PHONY: status
+status:
+	systemctl --user status 'podman-compose@evcc-with-grafana'
+
+# needs root
+.PHONY: setup
+setup:
+	loginctl enable-linger $(shell whoami)
+	podman-compose systemd -a create-unit
+	systemctl --user daemon-reload
+
+.PHONY: start
+start:
+	systemctl --user start 'podman-compose@evcc-with-grafana'
+
+.PHONY: stop
+stop:
+	systemctl --user stop 'podman-compose@evcc-with-grafana'
+
+.PHONY: install
+install:
+	podman-compose systemd -a register
+	systemctl --user enable 'podman-compose@evcc-with-grafana'
+	systemctl --user start 'podman-compose@evcc-with-grafana'
+
+.PHONY: uninstall
+uninstall:
+	systemctl --user stop 'podman-compose@evcc-with-grafana'
+	systemctl --user disable 'podman-compose@evcc-with-grafana'
+	podman-compose systemd -a unregister
