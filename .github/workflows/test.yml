@@ -26,7 +26,7 @@ jobs:
       - name: Run tests
         run: test/service_test.sh
 
-podman-compose-service-works:
+  podman-compose-service-works:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
