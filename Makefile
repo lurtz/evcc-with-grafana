@@ -44,6 +44,8 @@ status:
 setup:
 	loginctl enable-linger $(shell whoami)
 	podman-compose systemd -a create-unit
+	sed --in-place 's|up --no-start|--in-pod 1 up --no-start|g' /etc/xdg/systemd/user/podman-compose@.service
+	-sed --in-place 's|up --no-start|--in-pod 1 up --no-start|g' /etc/systemd/user/podman-compose@.service
 
 .PHONY: start
 start:
