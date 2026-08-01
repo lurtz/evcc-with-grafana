@@ -45,7 +45,8 @@ setup:
 	loginctl enable-linger $(shell whoami)
 	podman-compose systemd -a create-unit
 	# fix failure in github actions, but not observed locally with newer podman-compose versions
-	if [ "$(podman-compose --version | grep podman-compose | cut -d' ' -f3)" \< "1.3.0" ]; then \
+	if [ "`podman-compose --version | grep podman-compose | cut -d' ' -f3`" \< "1.3.0" ]; then \
+		echo "podman-compose version < 1.3.0 detected, patching systemd service file"; \
 		sed --in-place 's|up --no-start|--in-pod 1 up --no-start|g' /etc/systemd/user/podman-compose@.service; \
 	fi
 
