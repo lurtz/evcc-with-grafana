@@ -44,8 +44,10 @@ status:
 setup:
 	loginctl enable-linger $(shell whoami)
 	podman-compose systemd -a create-unit
-	sed --in-place 's|up --no-start|--in-pod 1 up --no-start|g' /etc/xdg/systemd/user/podman-compose@.service
-	-sed --in-place 's|up --no-start|--in-pod 1 up --no-start|g' /etc/systemd/user/podman-compose@.service
+	# fix failure in github actions, but not observed locally with newer podman-compose versions
+	if [ "$(podman-compose --version | grep podman-compose | cut -d' ' -f3)" \< "1.3.0" ]; then \
+		sed --in-place 's|up --no-start|--in-pod 1 up --no-start|g' /etc/systemd/user/podman-compose@.service; \
+	fi
 
 .PHONY: start
 start:
