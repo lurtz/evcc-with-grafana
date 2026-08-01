@@ -44,7 +44,6 @@ status:
 setup:
 	loginctl enable-linger $(shell whoami)
 	podman-compose systemd -a create-unit
-	systemctl --user daemon-reload
 
 .PHONY: start
 start:
@@ -57,6 +56,7 @@ stop:
 .PHONY: install
 install:
 	podman-compose systemd -a register
+	systemctl --user daemon-reload
 	systemctl --user enable 'podman-compose@evcc-with-grafana'
 	systemctl --user start 'podman-compose@evcc-with-grafana'
 
@@ -65,3 +65,4 @@ uninstall:
 	systemctl --user stop 'podman-compose@evcc-with-grafana'
 	systemctl --user disable 'podman-compose@evcc-with-grafana'
 	podman-compose systemd -a unregister
+	systemctl --user daemon-reload

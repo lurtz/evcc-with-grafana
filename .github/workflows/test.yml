@@ -25,3 +25,12 @@ jobs:
         run: sudo make install-podman
       - name: Run tests
         run: test/service_test.sh
+
+podman-compose-service-works:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: sudo make install-podman
+      - name: Run tests
+        run: test/podman-compose_service_test.sh
