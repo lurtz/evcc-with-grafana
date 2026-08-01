@@ -30,29 +30,6 @@ If that fails to download containers, [because no sub groups or sub user ids are
 # usermod --add-subuids 100000-165535 --add-subgids 100000-165535 $USER
 ```
 
-# Howto development versions of evcc
-
-Patch [docker-compose.yml](docker-compose.yml)
-
-```bash
-git apply own-build.patch
-```
-
-Then build evcc and rebuild the container.
-Make sure that the base image version in [evcc-own-build.Dockerfile](evcc-own-build.Dockerfile) approximately matches that of the code (nightly version or release).
-
-```
-cd evcc
-devcontainer up --workspace-folder .
-devcontainer exec --workspace-folder . bash
-make build
-exit
-cp evcc ../evcc-with-grafana/evcc-bin
-systemctl --user stop evcc-with-grafana
-podman rmi localhost/evcc-with-grafana_evcc:latest
-systemctl --user start evcc-with-grafana
-```
-
 # TODO
 
 - [ ] TLS connection to the internet (letsencrypt)
