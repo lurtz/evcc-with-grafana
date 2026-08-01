@@ -64,5 +64,6 @@ install:
 uninstall:
 	systemctl --user stop 'podman-compose@evcc-with-grafana'
 	systemctl --user disable 'podman-compose@evcc-with-grafana'
-	podman-compose systemd -a unregister
+# not available in all podman-compose versions
+	podman-compose systemd -a unregister || true
 	systemctl --user daemon-reload

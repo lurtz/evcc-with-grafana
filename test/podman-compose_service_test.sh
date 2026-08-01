@@ -8,7 +8,7 @@ function install_and_check_service() {
 	write_fake_credentials
 	write_fake_evcc_config
 	sudo make setup
-	make install
+	make install || journalctl --user -xeu podman-compose@evcc-with-grafana
 	systemctl --user is-active podman-compose@evcc-with-grafana || journalctl --user -xeu podman-compose@evcc-with-grafana
 }
 
