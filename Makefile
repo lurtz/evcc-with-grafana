@@ -56,6 +56,7 @@ stop:
 .PHONY: install
 install:
 	podman-compose systemd -a register
+	podman-compose down
 	systemctl --user daemon-reload
 	systemctl --user enable 'podman-compose@evcc-with-grafana'
 	systemctl --user start 'podman-compose@evcc-with-grafana'
