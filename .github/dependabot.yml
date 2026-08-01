@@ -10,7 +10,19 @@ updates:
     schedule:
       interval: "daily"
     groups:
-      all-in-one:
+      docker-compose:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: "daily"
+    groups:
+      github-actions:
         patterns:
           - "*"
         update-types:
