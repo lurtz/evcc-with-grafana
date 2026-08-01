@@ -17,8 +17,8 @@ install-service: evcc-with-grafana.service
 
 .PHONY: uninstall-service
 uninstall-service:
-	systemctl --user stop evcc-with-grafana.service
-	systemctl --user disable evcc-with-grafana.service
+	-systemctl --user stop evcc-with-grafana.service
+	-systemctl --user disable evcc-with-grafana.service
 	rm -f ~/.config/systemd/user/evcc-with-grafana.service
 	systemctl --user daemon-reload
 
@@ -62,8 +62,8 @@ install:
 
 .PHONY: uninstall
 uninstall:
-	systemctl --user stop 'podman-compose@evcc-with-grafana'
-	systemctl --user disable 'podman-compose@evcc-with-grafana'
+	-systemctl --user stop 'podman-compose@evcc-with-grafana'
+	-systemctl --user disable 'podman-compose@evcc-with-grafana'
 # not available in all podman-compose versions
-	podman-compose systemd -a unregister || true
-	systemctl --user daemon-reload
+# 	podman-compose systemd -a unregister || true
+# 	systemctl --user daemon-reload
