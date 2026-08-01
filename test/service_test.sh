@@ -8,7 +8,7 @@ function install_and_check_service() {
 	write_fake_credentials
 	write_fake_evcc_config
 	make install-service
-	systemctl --user is-active evcc-with-grafana || journalctl --user -xeu evcc-with-grafana
+	systemctl --user is-active evcc-with-grafana || (journalctl --user -xeu evcc-with-grafana && false)
 }
 
 install_and_check_service
