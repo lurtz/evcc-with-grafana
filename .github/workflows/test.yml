@@ -28,7 +28,6 @@ jobs:
 
   podman-compose-service-works:
     runs-on: ubuntu-latest
-    # Fails currently and I have no idea why it started to fail without changes in CI. Locally it works
     steps:
       - uses: actions/checkout@v7
       - name: Install dependencies
