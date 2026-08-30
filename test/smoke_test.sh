@@ -21,8 +21,7 @@ function startup_starts_all_containers_with_credentials_setup() {
 	[ 1 == $(podman exec evcc pidof evcc) ]
 	[ 1 == $(podman exec evcc-with-grafana_grafana_1 pidof grafana) ]
 	[ 1 == $(podman exec evcc-with-grafana_victoria-metrics_1 pidof /victoria-metrics-prod) ]
-	# check that an integer (pid) is returned, weakened due to CI flakyness
-	[[ "$(podman exec evcc-with-grafana_telegraf_1 pidof telegraf)" =~ ^[0-9]+$ ]]
+	[ 1 == $(podman exec evcc-with-grafana_telegraf_1 pidof telegraf) ]
 
 	# check configuration is correct
 	local grafana_env="$(podman exec evcc-with-grafana_grafana_1 env)"
