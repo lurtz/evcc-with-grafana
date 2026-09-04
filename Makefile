@@ -42,7 +42,6 @@ status:
 # needs root
 .PHONY: setup
 setup:
-	loginctl enable-linger $(shell whoami)
 	podman-compose systemd -a create-unit
 	# ensure newest image is pulled
 	sed --in-place 's|up --no-start|up --no-start --pull|g' /etc/systemd/user/podman-compose@.service; \
@@ -62,6 +61,7 @@ stop:
 
 .PHONY: install
 install:
+	loginctl enable-linger
 	podman-compose systemd -a register
 	podman-compose down
 	systemctl --user daemon-reload
