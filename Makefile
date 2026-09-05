@@ -61,7 +61,8 @@ stop:
 
 .PHONY: install
 install:
-	loginctl enable-linger
+	# fails in github actions, but not observed locally
+	-loginctl enable-linger
 	podman-compose systemd -a register
 	podman-compose down
 	systemctl --user daemon-reload
