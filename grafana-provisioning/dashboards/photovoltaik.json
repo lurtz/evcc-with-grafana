@@ -4,18 +4,23 @@
   "metadata": {
     "name": "c0cf06af-fedf-49b3-af2b-a053381007b6",
     "namespace": "default",
-    "uid": "123da28b-ae6f-4dba-bdde-638fd175f55a",
-    "resourceVersion": "1788604969207012",
-    "generation": 3,
-    "creationTimestamp": "2026-09-04T17:03:16Z",
+    "uid": "006096c9-c7f2-47ed-bcc7-0492d710c4fe",
+    "resourceVersion": "1788605224349986",
+    "generation": 1,
+    "creationTimestamp": "2026-09-05T10:47:04Z",
     "labels": {
-      "grafana.app/deprecatedInternalID": "1746817473974272"
+      "grafana.app/deprecatedInternalID": "2014530637975552"
     },
     "annotations": {
-      "grafana.app/createdBy": "user:dfx99imvzxszkd",
-      "grafana.app/saved-from-ui": "Grafana v13.2.1 (56cd3e9288)",
-      "grafana.app/updatedBy": "user:dfx99imvzxszkd",
-      "grafana.app/updatedTimestamp": "2026-09-05T10:42:49Z"
+      "grafana.app/createdBy": "access-policy:service",
+      "grafana.app/folder": "cfx99itzm1qtcc",
+      "grafana.app/managedBy": "classic-file-provisioning",
+      "grafana.app/managerId": "default",
+      "grafana.app/sourceChecksum": "624b1aa8e4ecdebf72701e1876687203",
+      "grafana.app/sourcePath": "/etc/grafana/provisioning/dashboards/photovoltaik.json",
+      "grafana.app/sourceTimestamp": "1788605219000",
+      "grafana.app/folderTitle": "Photovoltaik",
+      "grafana.app/folderUrl": "/dashboards/f/cfx99itzm1qtcc/photovoltaik"
     }
   },
   "spec": {
@@ -23,20 +28,20 @@
       {
         "kind": "AnnotationQuery",
         "spec": {
-          "query": {
-            "kind": "DataQuery",
-            "group": "grafana",
-            "version": "v0",
-            "datasource": {
-              "name": "-- Grafana --"
-            },
-            "spec": {}
-          },
+          "builtIn": true,
           "enable": true,
           "hide": true,
           "iconColor": "rgba(0, 211, 255, 1)",
           "name": "Annotations & Alerts",
-          "builtIn": true
+          "query": {
+            "datasource": {
+              "name": "-- Grafana --"
+            },
+            "group": "grafana",
+            "kind": "DataQuery",
+            "spec": {},
+            "version": "v0"
+          }
         }
       }
     ],
@@ -46,10 +51,6 @@
       "panel-10": {
         "kind": "Panel",
         "spec": {
-          "id": 10,
-          "title": "Energieverteilung",
-          "description": "",
-          "links": [],
           "data": {
             "kind": "QueryGroup",
             "spec": {
@@ -57,193 +58,165 @@
                 {
                   "kind": "PanelQuery",
                   "spec": {
+                    "hidden": false,
                     "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
                       "datasource": {
                         "name": "P447A881CCE6EE299"
                       },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
                         "expr": "pvPower_value{id=\"\"}",
                         "legendFormat": "PV",
                         "range": true
-                      }
+                      },
+                      "version": "v0"
                     },
-                    "refId": "A",
-                    "hidden": false
+                    "refId": "A"
                   }
                 },
                 {
                   "kind": "PanelQuery",
                   "spec": {
+                    "hidden": false,
                     "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
                       "datasource": {
                         "name": "P447A881CCE6EE299"
                       },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
                         "expr": "-homePower_value",
                         "legendFormat": "Hausverbrauch",
                         "range": true
-                      }
+                      },
+                      "version": "v0"
                     },
-                    "refId": "D",
-                    "hidden": false
+                    "refId": "D"
                   }
                 },
                 {
                   "kind": "PanelQuery",
                   "spec": {
+                    "hidden": false,
                     "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
                       "datasource": {
                         "name": "P447A881CCE6EE299"
                       },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
                         "expr": "-chargePower_value",
                         "legendFormat": "{{loadpoint}}",
                         "range": true
-                      }
+                      },
+                      "version": "v0"
                     },
-                    "refId": "E",
-                    "hidden": false
+                    "refId": "E"
                   }
                 },
                 {
                   "kind": "PanelQuery",
                   "spec": {
+                    "hidden": false,
                     "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
                       "datasource": {
                         "name": "P447A881CCE6EE299"
                       },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
                         "expr": "clamp_max(gridPower_value, 0)",
                         "legendFormat": "Einspeisung",
                         "range": true
-                      }
+                      },
+                      "version": "v0"
                     },
-                    "refId": "Einspeisung",
-                    "hidden": false
+                    "refId": "Einspeisung"
                   }
                 },
                 {
                   "kind": "PanelQuery",
                   "spec": {
+                    "hidden": false,
                     "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
                       "datasource": {
                         "name": "P447A881CCE6EE299"
                       },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
                         "expr": "clamp_min(gridPower_value, 0)",
                         "legendFormat": "Netzbezug",
                         "range": true
-                      }
+                      },
+                      "version": "v0"
                     },
-                    "refId": "Netzbezug",
-                    "hidden": false
+                    "refId": "Netzbezug"
                   }
                 },
                 {
                   "kind": "PanelQuery",
                   "spec": {
+                    "hidden": false,
                     "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
                       "datasource": {
                         "name": "P447A881CCE6EE299"
                       },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
                         "expr": "clamp_max(batteryPower_value{id=\"\"},0)",
                         "legendFormat": "Speicher laden",
                         "range": true
-                      }
+                      },
+                      "version": "v0"
                     },
-                    "refId": "Speicher laden",
-                    "hidden": false
+                    "refId": "Speicher laden"
                   }
                 },
                 {
                   "kind": "PanelQuery",
                   "spec": {
+                    "hidden": false,
                     "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
                       "datasource": {
                         "name": "P447A881CCE6EE299"
                       },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
                         "expr": "clamp_min(batteryPower_value{id=\"\"},0)",
                         "legendFormat": "Speicher entladen",
                         "range": true
-                      }
+                      },
+                      "version": "v0"
                     },
-                    "refId": "Speicher entladen",
-                    "hidden": false
+                    "refId": "Speicher entladen"
                   }
                 }
               ],
-              "transformations": [],
-              "queryOptions": {}
+              "queryOptions": {},
+              "transformations": []
             }
           },
+          "description": "",
+          "id": 10,
+          "links": [],
+          "title": "Energieverteilung",
           "vizConfig": {
-            "kind": "VizConfig",
             "group": "timeseries",
-            "version": "13.2.1",
+            "kind": "VizConfig",
             "spec": {
-              "options": {
-                "annotations": {
-                  "clustering": -1,
-                  "multiLane": false
-                },
-                "legend": {
-                  "calcs": [],
-                  "displayMode": "list",
-                  "placement": "bottom",
-                  "showLegend": true
-                },
-                "tooltip": {
-                  "hideZeros": false,
-                  "mode": "single",
-                  "sort": "none"
-                }
-              },
               "fieldConfig": {
                 "defaults": {
-                  "unit": "watt",
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "value": 0,
-                        "color": "green"
-                      },
-                      {
-                        "value": 80,
-                        "color": "red"
-                      }
-                    ]
-                  },
                   "color": {
                     "mode": "palette-classic"
                   },
@@ -280,204 +253,24 @@
                     "thresholdsStyle": {
                       "mode": "off"
                     }
-                  }
+                  },
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": 0
+                      },
+                      {
+                        "color": "red",
+                        "value": 80
+                      }
+                    ]
+                  },
+                  "unit": "watt"
                 },
                 "overrides": []
-              }
-            }
-          }
-        }
-      },
-      "panel-11": {
-        "kind": "Panel",
-        "spec": {
-          "id": 11,
-          "title": "Energieverteilung",
-          "description": "",
-          "links": [],
-          "data": {
-            "kind": "QueryGroup",
-            "spec": {
-              "queries": [
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "P447A881CCE6EE299"
-                      },
-                      "spec": {
-                        "editorMode": "code",
-                        "expr": "pvPower_value{id=\"\"}",
-                        "legendFormat": "PV",
-                        "range": true
-                      }
-                    },
-                    "refId": "A",
-                    "hidden": false
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "P447A881CCE6EE299"
-                      },
-                      "spec": {
-                        "editorMode": "code",
-                        "expr": "-homePower_value",
-                        "legendFormat": "Hausverbrauch",
-                        "range": true
-                      }
-                    },
-                    "refId": "D",
-                    "hidden": false
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "P447A881CCE6EE299"
-                      },
-                      "spec": {
-                        "editorMode": "code",
-                        "expr": "-chargePower_value",
-                        "legendFormat": " {{loadpoint}}",
-                        "range": true
-                      }
-                    },
-                    "refId": "E",
-                    "hidden": false
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "P447A881CCE6EE299"
-                      },
-                      "spec": {
-                        "editorMode": "code",
-                        "expr": "clamp_max(gridPower_value, 0)",
-                        "legendFormat": "Einspeisung",
-                        "range": true
-                      }
-                    },
-                    "refId": "Einspeisung",
-                    "hidden": false
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "P447A881CCE6EE299"
-                      },
-                      "spec": {
-                        "editorMode": "code",
-                        "expr": "clamp_min(gridPower_value, 0)",
-                        "legendFormat": "Netzbezug",
-                        "range": true
-                      }
-                    },
-                    "refId": "Netzbezug",
-                    "hidden": false
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "P447A881CCE6EE299"
-                      },
-                      "spec": {
-                        "editorMode": "code",
-                        "expr": "clamp_max(batteryPower_value{id=\"\"}, 0)",
-                        "legendFormat": "Speicher laden",
-                        "range": true
-                      }
-                    },
-                    "refId": "Speicher laden",
-                    "hidden": false
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "P447A881CCE6EE299"
-                      },
-                      "spec": {
-                        "editorMode": "code",
-                        "expr": "clamp_min(batteryPower_value{id=\"\"}, 0)",
-                        "legendFormat": "Speicher entladen",
-                        "range": true
-                      }
-                    },
-                    "refId": "Speicher entladen",
-                    "hidden": false
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "P447A881CCE6EE299"
-                      },
-                      "spec": {
-                        "editorMode": "code",
-                        "expr": "batterySoc_value{id=~\".+\"}",
-                        "format": "time_series",
-                        "legendFormat": "__auto",
-                        "range": true
-                      }
-                    },
-                    "refId": "B",
-                    "hidden": false
-                  }
-                }
-              ],
-              "transformations": [],
-              "queryOptions": {}
-            }
-          },
-          "vizConfig": {
-            "kind": "VizConfig",
-            "group": "timeseries",
-            "version": "13.2.1",
-            "spec": {
+              },
               "options": {
                 "annotations": {
                   "clustering": -1,
@@ -494,23 +287,203 @@
                   "mode": "single",
                   "sort": "none"
                 }
-              },
+              }
+            },
+            "version": "13.2.1"
+          }
+        }
+      },
+      "panel-11": {
+        "kind": "Panel",
+        "spec": {
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "P447A881CCE6EE299"
+                      },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "editorMode": "code",
+                        "expr": "pvPower_value{id=\"\"}",
+                        "legendFormat": "PV",
+                        "range": true
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "A"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "P447A881CCE6EE299"
+                      },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "editorMode": "code",
+                        "expr": "-homePower_value",
+                        "legendFormat": "Hausverbrauch",
+                        "range": true
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "D"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "P447A881CCE6EE299"
+                      },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "editorMode": "code",
+                        "expr": "-chargePower_value",
+                        "legendFormat": " {{loadpoint}}",
+                        "range": true
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "E"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "P447A881CCE6EE299"
+                      },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "editorMode": "code",
+                        "expr": "clamp_max(gridPower_value, 0)",
+                        "legendFormat": "Einspeisung",
+                        "range": true
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "Einspeisung"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "P447A881CCE6EE299"
+                      },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "editorMode": "code",
+                        "expr": "clamp_min(gridPower_value, 0)",
+                        "legendFormat": "Netzbezug",
+                        "range": true
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "Netzbezug"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "P447A881CCE6EE299"
+                      },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "editorMode": "code",
+                        "expr": "clamp_max(batteryPower_value{id=\"\"}, 0)",
+                        "legendFormat": "Speicher laden",
+                        "range": true
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "Speicher laden"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "P447A881CCE6EE299"
+                      },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "editorMode": "code",
+                        "expr": "clamp_min(batteryPower_value{id=\"\"}, 0)",
+                        "legendFormat": "Speicher entladen",
+                        "range": true
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "Speicher entladen"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "P447A881CCE6EE299"
+                      },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "editorMode": "code",
+                        "expr": "batterySoc_value{id=~\".+\"}",
+                        "format": "time_series",
+                        "legendFormat": "__auto",
+                        "range": true
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "B"
+                  }
+                }
+              ],
+              "queryOptions": {},
+              "transformations": []
+            }
+          },
+          "description": "",
+          "id": 11,
+          "links": [],
+          "title": "Energieverteilung",
+          "vizConfig": {
+            "group": "timeseries",
+            "kind": "VizConfig",
+            "spec": {
               "fieldConfig": {
                 "defaults": {
-                  "unit": "watt",
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "value": 0,
-                        "color": "green"
-                      },
-                      {
-                        "value": 80,
-                        "color": "red"
-                      }
-                    ]
-                  },
                   "color": {
                     "mode": "palette-classic"
                   },
@@ -547,7 +520,21 @@
                     "thresholdsStyle": {
                       "mode": "off"
                     }
-                  }
+                  },
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": 0
+                      },
+                      {
+                        "color": "red",
+                        "value": 80
+                      }
+                    ]
+                  },
+                  "unit": "watt"
                 },
                 "overrides": [
                   {
@@ -582,18 +569,32 @@
                     ]
                   }
                 ]
+              },
+              "options": {
+                "annotations": {
+                  "clustering": -1,
+                  "multiLane": false
+                },
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "single",
+                  "sort": "none"
+                }
               }
-            }
+            },
+            "version": "13.2.1"
           }
         }
       },
       "panel-13": {
         "kind": "Panel",
         "spec": {
-          "id": 13,
-          "title": "Produzierte / Verbrauchte Energie",
-          "description": "Zeigt für jeden Tag die produzierten und verbrauchten kWh an",
-          "links": [],
           "data": {
             "kind": "QueryGroup",
             "spec": {
@@ -601,226 +602,195 @@
                 {
                   "kind": "PanelQuery",
                   "spec": {
+                    "hidden": true,
                     "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
                       "datasource": {
                         "name": "P447A881CCE6EE299"
                       },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
                         "exemplar": false,
                         "expr": "(pvEnergy_value{id!~\".+\"} offset -1d - (pvEnergy_value{id!~\".+\"} offset 0d)) * 1000",
+                        "format": "time_series",
                         "instant": false,
                         "interval": "",
                         "legendFormat": "PV",
                         "range": true
-                      }
+                      },
+                      "version": "v0"
                     },
-                    "refId": "A",
-                    "hidden": false
+                    "refId": "A"
                   }
                 },
                 {
                   "kind": "PanelQuery",
                   "spec": {
+                    "hidden": false,
                     "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
                       "datasource": {
                         "name": "P447A881CCE6EE299"
                       },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
-                        "expr": "integrate(pvPower_value{id!~\".+\"}[$__interval] offset -1) / $__interval * 24",
+                        "expr": "integrate(pvPower_value{id!~\".+\"}[$__interval] offset -1d) / $__interval * 24",
+                        "format": "time_series",
                         "interval": "",
-                        "legendFormat": "__auto",
+                        "legendFormat": "PV",
                         "range": true
-                      }
+                      },
+                      "version": "v0"
                     },
-                    "refId": "B",
-                    "hidden": true
+                    "refId": "B"
                   }
                 },
                 {
                   "kind": "PanelQuery",
                   "spec": {
+                    "hidden": false,
                     "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
                       "datasource": {
                         "name": "P447A881CCE6EE299"
                       },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
                         "expr": "integrate(homePower_value[24h] offset -1d) / 3600",
                         "legendFormat": "Hausverbrauch",
                         "range": true
-                      }
+                      },
+                      "version": "v0"
                     },
-                    "refId": "D",
-                    "hidden": false
+                    "refId": "D"
                   }
                 },
                 {
                   "kind": "PanelQuery",
                   "spec": {
+                    "hidden": false,
                     "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
                       "datasource": {
                         "name": "P447A881CCE6EE299"
                       },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
                         "expr": "integrate(chargePower_value[24h] offset -1d) / 3600",
                         "legendFormat": "{{loadpoint}}",
                         "range": true
-                      }
+                      },
+                      "version": "v0"
                     },
-                    "refId": "C",
-                    "hidden": false
+                    "refId": "C"
                   }
                 },
                 {
                   "kind": "PanelQuery",
                   "spec": {
+                    "hidden": false,
                     "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
                       "datasource": {
                         "name": "P447A881CCE6EE299"
                       },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
                         "expr": "-(integrate(gridPower_value[24h] offset -1d) / 3600 - ((gridEnergy_value offset -1d - (gridEnergy_value offset 0d)) * 1000))",
                         "legendFormat": "Einspeisung",
                         "range": true
-                      }
+                      },
+                      "version": "v0"
                     },
-                    "refId": "F",
-                    "hidden": false
+                    "refId": "F"
                   }
                 },
                 {
                   "kind": "PanelQuery",
                   "spec": {
+                    "hidden": false,
                     "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
                       "datasource": {
                         "name": "P447A881CCE6EE299"
                       },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
                         "expr": "(gridEnergy_value offset -1d - (gridEnergy_value offset 0d)) * 1000",
                         "legendFormat": "Bezug",
                         "range": true
-                      }
+                      },
+                      "version": "v0"
                     },
-                    "refId": "E",
-                    "hidden": false
+                    "refId": "E"
                   }
                 },
                 {
                   "kind": "PanelQuery",
                   "spec": {
+                    "hidden": false,
                     "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
                       "datasource": {
                         "name": "P447A881CCE6EE299"
                       },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
                         "expr": "-(integrate(batteryPower_value{id!~\".+\"}[24h] offset -1d) / 3600 - ((batteryEnergy_value{id!~\".+\"} offset -1d - batteryEnergy_value{id!~\".+\"} offset 0d) * 1000))",
                         "legendFormat": "Batterie laden",
                         "range": true
-                      }
+                      },
+                      "version": "v0"
                     },
-                    "refId": "H",
-                    "hidden": false
+                    "refId": "H"
                   }
                 },
                 {
                   "kind": "PanelQuery",
                   "spec": {
+                    "hidden": false,
                     "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
                       "datasource": {
                         "name": "P447A881CCE6EE299"
                       },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
                         "expr": "(batteryEnergy_value{id!~\".+\"} offset -1d - batteryEnergy_value{id!~\".+\"} offset 0d) * 1000",
                         "format": "time_series",
                         "legendFormat": "Batterrie entladen",
                         "range": true
-                      }
+                      },
+                      "version": "v0"
                     },
-                    "refId": "G",
-                    "hidden": false
+                    "refId": "G"
                   }
                 }
               ],
-              "transformations": [],
               "queryOptions": {
                 "interval": "24h"
-              }
+              },
+              "transformations": []
             }
           },
+          "description": "Zeigt für jeden Tag die produzierten und verbrauchten kWh an",
+          "id": 13,
+          "links": [],
+          "title": "Produzierte / Verbrauchte Energie",
           "vizConfig": {
-            "kind": "VizConfig",
             "group": "barchart",
-            "version": "13.2.1",
+            "kind": "VizConfig",
             "spec": {
-              "options": {
-                "barRadius": 0,
-                "barWidth": 0.97,
-                "fullHighlight": false,
-                "groupWidth": 0.7,
-                "legend": {
-                  "calcs": [],
-                  "displayMode": "list",
-                  "placement": "bottom",
-                  "showLegend": true
-                },
-                "orientation": "auto",
-                "showValue": "auto",
-                "stacking": "none",
-                "tooltip": {
-                  "hideZeros": false,
-                  "mode": "single",
-                  "sort": "none"
-                },
-                "xTickLabelRotation": 0,
-                "xTickLabelSpacing": 0
-              },
               "fieldConfig": {
                 "defaults": {
-                  "unit": "watth",
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "value": 0,
-                        "color": "green"
-                      },
-                      {
-                        "value": 80,
-                        "color": "red"
-                      }
-                    ]
-                  },
                   "color": {
                     "mode": "palette-classic"
                   },
@@ -844,21 +814,54 @@
                     "thresholdsStyle": {
                       "mode": "off"
                     }
-                  }
+                  },
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": 0
+                      },
+                      {
+                        "color": "red",
+                        "value": 80
+                      }
+                    ]
+                  },
+                  "unit": "watth"
                 },
                 "overrides": []
+              },
+              "options": {
+                "barRadius": 0,
+                "barWidth": 0.97,
+                "fullHighlight": false,
+                "groupWidth": 0.7,
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "orientation": "auto",
+                "showValue": "auto",
+                "stacking": "none",
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "single",
+                  "sort": "none"
+                },
+                "xTickLabelRotation": 0,
+                "xTickLabelSpacing": 0
               }
-            }
+            },
+            "version": "13.2.1"
           }
         }
       },
       "panel-14": {
         "kind": "Panel",
         "spec": {
-          "id": 14,
-          "title": "Grafana interne variablen",
-          "description": "",
-          "links": [],
           "data": {
             "kind": "QueryGroup",
             "spec": {
@@ -866,97 +869,121 @@
                 {
                   "kind": "PanelQuery",
                   "spec": {
+                    "hidden": false,
                     "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
                       "datasource": {
                         "name": "P447A881CCE6EE299"
                       },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
                         "expr": "$__interval",
                         "legendFormat": "__auto",
                         "range": true
-                      }
+                      },
+                      "version": "v0"
                     },
-                    "refId": "A",
-                    "hidden": false
+                    "refId": "A"
                   }
                 },
                 {
                   "kind": "PanelQuery",
                   "spec": {
+                    "hidden": false,
                     "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
                       "datasource": {
                         "name": "P447A881CCE6EE299"
                       },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
                         "expr": "$__rate_interval",
                         "legendFormat": "__auto",
                         "range": true
-                      }
+                      },
+                      "version": "v0"
                     },
-                    "refId": "B",
-                    "hidden": false
+                    "refId": "B"
                   }
                 },
                 {
                   "kind": "PanelQuery",
                   "spec": {
+                    "hidden": false,
                     "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
                       "datasource": {
                         "name": "P447A881CCE6EE299"
                       },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
                         "expr": "$__range",
                         "legendFormat": "__auto",
                         "range": true
-                      }
+                      },
+                      "version": "v0"
                     },
-                    "refId": "C",
-                    "hidden": false
+                    "refId": "C"
                   }
                 },
                 {
                   "kind": "PanelQuery",
                   "spec": {
+                    "hidden": false,
                     "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
                       "datasource": {
                         "name": "P447A881CCE6EE299"
                       },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
                         "expr": "$__interval_ms",
                         "legendFormat": "__auto",
                         "range": true
-                      }
+                      },
+                      "version": "v0"
                     },
-                    "refId": "D",
-                    "hidden": false
+                    "refId": "D"
                   }
                 }
               ],
-              "transformations": [],
-              "queryOptions": {}
+              "queryOptions": {},
+              "transformations": []
             }
           },
+          "description": "",
+          "id": 14,
+          "links": [],
+          "title": "Grafana interne variablen",
           "vizConfig": {
-            "kind": "VizConfig",
             "group": "gauge",
-            "version": "13.2.1",
+            "kind": "VizConfig",
             "spec": {
+              "fieldConfig": {
+                "defaults": {
+                  "color": {
+                    "mode": "thresholds"
+                  },
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": 0
+                      },
+                      {
+                        "color": "red",
+                        "value": 80
+                      }
+                    ]
+                  }
+                },
+                "overrides": []
+              },
               "options": {
                 "barShape": "flat",
                 "barWidthFactor": 0.5,
@@ -984,39 +1011,15 @@
                 "sizing": "auto",
                 "sparkline": false,
                 "textMode": "auto"
-              },
-              "fieldConfig": {
-                "defaults": {
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "value": 0,
-                        "color": "green"
-                      },
-                      {
-                        "value": 80,
-                        "color": "red"
-                      }
-                    ]
-                  },
-                  "color": {
-                    "mode": "thresholds"
-                  }
-                },
-                "overrides": []
               }
-            }
+            },
+            "version": "13.2.1"
           }
         }
       },
       "panel-4": {
         "kind": "Panel",
         "spec": {
-          "id": 4,
-          "title": "Probe",
-          "description": "",
-          "links": [],
           "data": {
             "kind": "QueryGroup",
             "spec": {
@@ -1024,63 +1027,39 @@
                 {
                   "kind": "PanelQuery",
                   "spec": {
+                    "hidden": false,
                     "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
                       "datasource": {
                         "name": "P447A881CCE6EE299"
                       },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
                         "expr": "sum(pvPower_value{id=~\".+\"}) - homePower_value + gridPower_value + sum(batteryPower_value{id=~\".+\"}) - sum(chargePower_value)",
                         "legendFormat": "__auto",
                         "range": true
-                      }
+                      },
+                      "version": "v0"
                     },
-                    "refId": "A",
-                    "hidden": false
+                    "refId": "A"
                   }
                 }
               ],
-              "transformations": [],
-              "queryOptions": {}
+              "queryOptions": {},
+              "transformations": []
             }
           },
+          "description": "",
+          "id": 4,
+          "links": [],
+          "title": "Probe",
           "vizConfig": {
-            "kind": "VizConfig",
             "group": "timeseries",
-            "version": "13.2.1",
+            "kind": "VizConfig",
             "spec": {
-              "options": {
-                "legend": {
-                  "calcs": [],
-                  "displayMode": "list",
-                  "placement": "bottom",
-                  "showLegend": true
-                },
-                "tooltip": {
-                  "hideZeros": false,
-                  "mode": "single",
-                  "sort": "none"
-                }
-              },
               "fieldConfig": {
                 "defaults": {
-                  "unit": "watt",
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "value": 0,
-                        "color": "green"
-                      },
-                      {
-                        "value": 80,
-                        "color": "red"
-                      }
-                    ]
-                  },
                   "color": {
                     "mode": "palette-classic"
                   },
@@ -1117,7 +1096,21 @@
                     "thresholdsStyle": {
                       "mode": "off"
                     }
-                  }
+                  },
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": 0
+                      },
+                      {
+                        "color": "red",
+                        "value": 80
+                      }
+                    ]
+                  },
+                  "unit": "watt"
                 },
                 "overrides": [
                   {
@@ -1141,164 +1134,8 @@
                     ]
                   }
                 ]
-              }
-            }
-          }
-        }
-      },
-      "panel-6": {
-        "kind": "Panel",
-        "spec": {
-          "id": 6,
-          "title": "Rein / raus",
-          "description": "",
-          "links": [],
-          "data": {
-            "kind": "QueryGroup",
-            "spec": {
-              "queries": [
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "P447A881CCE6EE299"
-                      },
-                      "spec": {
-                        "editorMode": "code",
-                        "expr": "pvPower_value{id=\"\"}",
-                        "legendFormat": "total pvPower",
-                        "range": true
-                      }
-                    },
-                    "refId": "A",
-                    "hidden": false
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "P447A881CCE6EE299"
-                      },
-                      "spec": {
-                        "editorMode": "builder",
-                        "expr": "homePower_value",
-                        "legendFormat": "__auto",
-                        "range": true
-                      }
-                    },
-                    "refId": "B",
-                    "hidden": false
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "P447A881CCE6EE299"
-                      },
-                      "spec": {
-                        "editorMode": "builder",
-                        "expr": "chargePower_value",
-                        "legendFormat": "chargePower {{loadpoint}}",
-                        "range": true
-                      }
-                    },
-                    "refId": "D",
-                    "hidden": false
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "P447A881CCE6EE299"
-                      },
-                      "spec": {
-                        "editorMode": "builder",
-                        "expr": "gridPower_value",
-                        "legendFormat": "__auto",
-                        "range": true
-                      }
-                    },
-                    "refId": "C",
-                    "hidden": false
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "P447A881CCE6EE299"
-                      },
-                      "spec": {
-                        "editorMode": "code",
-                        "expr": "batteryPower_value{id=~\".+\"}",
-                        "legendFormat": "__auto",
-                        "range": true
-                      }
-                    },
-                    "refId": "E",
-                    "hidden": false
-                  }
-                },
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "P447A881CCE6EE299"
-                      },
-                      "spec": {
-                        "editorMode": "code",
-                        "expr": "batterySoc_value{id=~\".+\"}",
-                        "format": "time_series",
-                        "legendFormat": "__auto",
-                        "range": true
-                      }
-                    },
-                    "refId": "F",
-                    "hidden": false
-                  }
-                }
-              ],
-              "transformations": [],
-              "queryOptions": {}
-            }
-          },
-          "vizConfig": {
-            "kind": "VizConfig",
-            "group": "timeseries",
-            "version": "13.2.1",
-            "spec": {
+              },
               "options": {
-                "annotations": {
-                  "clustering": -1,
-                  "multiLane": false
-                },
                 "legend": {
                   "calcs": [],
                   "displayMode": "list",
@@ -1310,23 +1147,161 @@
                   "mode": "single",
                   "sort": "none"
                 }
-              },
+              }
+            },
+            "version": "13.2.1"
+          }
+        }
+      },
+      "panel-6": {
+        "kind": "Panel",
+        "spec": {
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "P447A881CCE6EE299"
+                      },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "editorMode": "code",
+                        "expr": "pvPower_value{id=\"\"}",
+                        "legendFormat": "total pvPower",
+                        "range": true
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "A"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "P447A881CCE6EE299"
+                      },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "editorMode": "builder",
+                        "expr": "homePower_value",
+                        "legendFormat": "__auto",
+                        "range": true
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "B"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "P447A881CCE6EE299"
+                      },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "editorMode": "builder",
+                        "expr": "chargePower_value",
+                        "legendFormat": "chargePower {{loadpoint}}",
+                        "range": true
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "D"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "P447A881CCE6EE299"
+                      },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "editorMode": "builder",
+                        "expr": "gridPower_value",
+                        "legendFormat": "__auto",
+                        "range": true
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "C"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "P447A881CCE6EE299"
+                      },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "editorMode": "code",
+                        "expr": "batteryPower_value{id=~\".+\"}",
+                        "legendFormat": "__auto",
+                        "range": true
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "E"
+                  }
+                },
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "P447A881CCE6EE299"
+                      },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "editorMode": "code",
+                        "expr": "batterySoc_value{id=~\".+\"}",
+                        "format": "time_series",
+                        "legendFormat": "__auto",
+                        "range": true
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "F"
+                  }
+                }
+              ],
+              "queryOptions": {},
+              "transformations": []
+            }
+          },
+          "description": "",
+          "id": 6,
+          "links": [],
+          "title": "Rein / raus",
+          "vizConfig": {
+            "group": "timeseries",
+            "kind": "VizConfig",
+            "spec": {
               "fieldConfig": {
                 "defaults": {
-                  "unit": "watt",
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "value": 0,
-                        "color": "green"
-                      },
-                      {
-                        "value": 80,
-                        "color": "red"
-                      }
-                    ]
-                  },
                   "color": {
                     "mode": "palette-classic"
                   },
@@ -1363,7 +1338,21 @@
                     "thresholdsStyle": {
                       "mode": "off"
                     }
-                  }
+                  },
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": 0
+                      },
+                      {
+                        "color": "red",
+                        "value": 80
+                      }
+                    ]
+                  },
+                  "unit": "watt"
                 },
                 "overrides": [
                   {
@@ -1399,54 +1388,12 @@
                     ]
                   }
                 ]
-              }
-            }
-          }
-        }
-      },
-      "panel-7": {
-        "kind": "Panel",
-        "spec": {
-          "id": 7,
-          "title": "Reaktionszeiten der Geräte",
-          "description": "",
-          "links": [],
-          "data": {
-            "kind": "QueryGroup",
-            "spec": {
-              "queries": [
-                {
-                  "kind": "PanelQuery",
-                  "spec": {
-                    "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
-                      "datasource": {
-                        "name": "P447A881CCE6EE299"
-                      },
-                      "spec": {
-                        "editorMode": "code",
-                        "expr": "ping_average_response_ms",
-                        "legendFormat": "{{url}}",
-                        "range": true
-                      }
-                    },
-                    "refId": "A",
-                    "hidden": false
-                  }
-                }
-              ],
-              "transformations": [],
-              "queryOptions": {}
-            }
-          },
-          "vizConfig": {
-            "kind": "VizConfig",
-            "group": "timeseries",
-            "version": "13.2.1",
-            "spec": {
+              },
               "options": {
+                "annotations": {
+                  "clustering": -1,
+                  "multiLane": false
+                },
                 "legend": {
                   "calcs": [],
                   "displayMode": "list",
@@ -1458,23 +1405,55 @@
                   "mode": "single",
                   "sort": "none"
                 }
-              },
+              }
+            },
+            "version": "13.2.1"
+          }
+        }
+      },
+      "panel-7": {
+        "kind": "Panel",
+        "spec": {
+          "data": {
+            "kind": "QueryGroup",
+            "spec": {
+              "queries": [
+                {
+                  "kind": "PanelQuery",
+                  "spec": {
+                    "hidden": false,
+                    "query": {
+                      "datasource": {
+                        "name": "P447A881CCE6EE299"
+                      },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
+                      "spec": {
+                        "editorMode": "code",
+                        "expr": "ping_average_response_ms",
+                        "legendFormat": "{{url}}",
+                        "range": true
+                      },
+                      "version": "v0"
+                    },
+                    "refId": "A"
+                  }
+                }
+              ],
+              "queryOptions": {},
+              "transformations": []
+            }
+          },
+          "description": "",
+          "id": 7,
+          "links": [],
+          "title": "Reaktionszeiten der Geräte",
+          "vizConfig": {
+            "group": "timeseries",
+            "kind": "VizConfig",
+            "spec": {
               "fieldConfig": {
                 "defaults": {
-                  "unit": "ms",
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "value": 0,
-                        "color": "green"
-                      },
-                      {
-                        "value": 80,
-                        "color": "red"
-                      }
-                    ]
-                  },
                   "color": {
                     "mode": "palette-classic"
                   },
@@ -1513,21 +1492,45 @@
                       "mode": "off"
                     }
                   },
-                  "fieldMinMax": true
+                  "fieldMinMax": true,
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": 0
+                      },
+                      {
+                        "color": "red",
+                        "value": 80
+                      }
+                    ]
+                  },
+                  "unit": "ms"
                 },
                 "overrides": []
+              },
+              "options": {
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "single",
+                  "sort": "none"
+                }
               }
-            }
+            },
+            "version": "13.2.1"
           }
         }
       },
       "panel-8": {
         "kind": "Panel",
         "spec": {
-          "id": 8,
-          "title": "Erreichbarkeit",
-          "description": "",
-          "links": [],
           "data": {
             "kind": "QueryGroup",
             "spec": {
@@ -1535,63 +1538,39 @@
                 {
                   "kind": "PanelQuery",
                   "spec": {
+                    "hidden": false,
                     "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
                       "datasource": {
                         "name": "P447A881CCE6EE299"
                       },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
                         "expr": "1 - ping_result_code",
                         "legendFormat": "{{url}}",
                         "range": true
-                      }
+                      },
+                      "version": "v0"
                     },
-                    "refId": "B",
-                    "hidden": false
+                    "refId": "B"
                   }
                 }
               ],
-              "transformations": [],
-              "queryOptions": {}
+              "queryOptions": {},
+              "transformations": []
             }
           },
+          "description": "",
+          "id": 8,
+          "links": [],
+          "title": "Erreichbarkeit",
           "vizConfig": {
-            "kind": "VizConfig",
             "group": "timeseries",
-            "version": "13.2.1",
+            "kind": "VizConfig",
             "spec": {
-              "options": {
-                "legend": {
-                  "calcs": [],
-                  "displayMode": "list",
-                  "placement": "bottom",
-                  "showLegend": true
-                },
-                "tooltip": {
-                  "hideZeros": false,
-                  "mode": "single",
-                  "sort": "none"
-                }
-              },
               "fieldConfig": {
                 "defaults": {
-                  "unit": "bool",
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "value": 0,
-                        "color": "green"
-                      },
-                      {
-                        "value": 80,
-                        "color": "red"
-                      }
-                    ]
-                  },
                   "color": {
                     "mode": "palette-classic"
                   },
@@ -1629,21 +1608,45 @@
                       "mode": "off"
                     }
                   },
-                  "fieldMinMax": true
+                  "fieldMinMax": true,
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": 0
+                      },
+                      {
+                        "color": "red",
+                        "value": 80
+                      }
+                    ]
+                  },
+                  "unit": "bool"
                 },
                 "overrides": []
+              },
+              "options": {
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "single",
+                  "sort": "none"
+                }
               }
-            }
+            },
+            "version": "13.2.1"
           }
         }
       },
       "panel-9": {
         "kind": "Panel",
         "spec": {
-          "id": 9,
-          "title": "Akkustatus",
-          "description": "",
-          "links": [],
           "data": {
             "kind": "QueryGroup",
             "spec": {
@@ -1651,127 +1654,103 @@
                 {
                   "kind": "PanelQuery",
                   "spec": {
+                    "hidden": false,
                     "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
                       "datasource": {
                         "name": "P447A881CCE6EE299"
                       },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
                         "expr": "batteryCapacity_value{id=~\"\"}",
                         "legendFormat": "__auto",
                         "range": true
-                      }
+                      },
+                      "version": "v0"
                     },
-                    "refId": "A",
-                    "hidden": false
+                    "refId": "A"
                   }
                 },
                 {
                   "kind": "PanelQuery",
                   "spec": {
+                    "hidden": false,
                     "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
                       "datasource": {
                         "name": "P447A881CCE6EE299"
                       },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
                         "expr": "batteryEnergy_value{id=~\".+\"}",
                         "legendFormat": "__auto",
                         "range": true
-                      }
+                      },
+                      "version": "v0"
                     },
-                    "refId": "B",
-                    "hidden": false
+                    "refId": "B"
                   }
                 },
                 {
                   "kind": "PanelQuery",
                   "spec": {
+                    "hidden": false,
                     "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
                       "datasource": {
                         "name": "P447A881CCE6EE299"
                       },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
                         "expr": "batteryPower_value{id=~\".+\"}",
                         "legendFormat": "__auto",
                         "range": true
-                      }
+                      },
+                      "version": "v0"
                     },
-                    "refId": "C",
-                    "hidden": false
+                    "refId": "C"
                   }
                 },
                 {
                   "kind": "PanelQuery",
                   "spec": {
+                    "hidden": false,
                     "query": {
-                      "kind": "DataQuery",
-                      "group": "victoriametrics-metrics-datasource",
-                      "version": "v0",
                       "datasource": {
                         "name": "P447A881CCE6EE299"
                       },
+                      "group": "victoriametrics-metrics-datasource",
+                      "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
                         "expr": "batterySoc_value{id=~\".+\"}",
                         "format": "time_series",
                         "legendFormat": "__auto",
                         "range": true
-                      }
+                      },
+                      "version": "v0"
                     },
-                    "refId": "D",
-                    "hidden": false
+                    "refId": "D"
                   }
                 }
               ],
-              "transformations": [],
-              "queryOptions": {}
+              "queryOptions": {},
+              "transformations": []
             }
           },
+          "description": "",
+          "id": 9,
+          "links": [],
+          "title": "Akkustatus",
           "vizConfig": {
-            "kind": "VizConfig",
             "group": "timeseries",
-            "version": "13.2.1",
+            "kind": "VizConfig",
             "spec": {
-              "options": {
-                "legend": {
-                  "calcs": [],
-                  "displayMode": "list",
-                  "placement": "bottom",
-                  "showLegend": true
-                },
-                "tooltip": {
-                  "hideZeros": false,
-                  "mode": "single",
-                  "sort": "none"
-                }
-              },
               "fieldConfig": {
                 "defaults": {
-                  "unit": "percentunit",
-                  "thresholds": {
-                    "mode": "absolute",
-                    "steps": [
-                      {
-                        "value": 0,
-                        "color": "green"
-                      },
-                      {
-                        "value": 80,
-                        "color": "red"
-                      }
-                    ]
-                  },
                   "color": {
                     "mode": "palette-classic"
                   },
@@ -1808,7 +1787,21 @@
                     "thresholdsStyle": {
                       "mode": "off"
                     }
-                  }
+                  },
+                  "thresholds": {
+                    "mode": "absolute",
+                    "steps": [
+                      {
+                        "color": "green",
+                        "value": 0
+                      },
+                      {
+                        "color": "red",
+                        "value": 80
+                      }
+                    ]
+                  },
+                  "unit": "percentunit"
                 },
                 "overrides": [
                   {
@@ -1876,8 +1869,22 @@
                     ]
                   }
                 ]
+              },
+              "options": {
+                "legend": {
+                  "calcs": [],
+                  "displayMode": "list",
+                  "placement": "bottom",
+                  "showLegend": true
+                },
+                "tooltip": {
+                  "hideZeros": false,
+                  "mode": "single",
+                  "sort": "none"
+                }
               }
-            }
+            },
+            "version": "13.2.1"
           }
         }
       }
@@ -1889,118 +1896,118 @@
           {
             "kind": "GridLayoutItem",
             "spec": {
-              "x": 0,
-              "y": 0,
-              "width": 24,
-              "height": 17,
               "element": {
                 "kind": "ElementReference",
                 "name": "panel-6"
-              }
+              },
+              "height": 17,
+              "width": 24,
+              "x": 0,
+              "y": 0
             }
           },
           {
             "kind": "GridLayoutItem",
             "spec": {
-              "x": 0,
-              "y": 17,
-              "width": 24,
-              "height": 9,
               "element": {
                 "kind": "ElementReference",
                 "name": "panel-13"
-              }
+              },
+              "height": 9,
+              "width": 24,
+              "x": 0,
+              "y": 17
             }
           },
           {
             "kind": "GridLayoutItem",
             "spec": {
-              "x": 0,
-              "y": 26,
-              "width": 24,
-              "height": 16,
               "element": {
                 "kind": "ElementReference",
                 "name": "panel-11"
-              }
+              },
+              "height": 16,
+              "width": 24,
+              "x": 0,
+              "y": 26
             }
           },
           {
             "kind": "GridLayoutItem",
             "spec": {
-              "x": 0,
-              "y": 42,
-              "width": 24,
-              "height": 9,
               "element": {
                 "kind": "ElementReference",
                 "name": "panel-10"
-              }
+              },
+              "height": 9,
+              "width": 24,
+              "x": 0,
+              "y": 42
             }
           },
           {
             "kind": "GridLayoutItem",
             "spec": {
-              "x": 0,
-              "y": 51,
-              "width": 24,
-              "height": 10,
               "element": {
                 "kind": "ElementReference",
                 "name": "panel-9"
-              }
+              },
+              "height": 10,
+              "width": 24,
+              "x": 0,
+              "y": 51
             }
           },
           {
             "kind": "GridLayoutItem",
             "spec": {
-              "x": 0,
-              "y": 61,
-              "width": 24,
-              "height": 11,
               "element": {
                 "kind": "ElementReference",
                 "name": "panel-4"
-              }
+              },
+              "height": 11,
+              "width": 24,
+              "x": 0,
+              "y": 61
             }
           },
           {
             "kind": "GridLayoutItem",
             "spec": {
-              "x": 0,
-              "y": 72,
-              "width": 12,
-              "height": 14,
               "element": {
                 "kind": "ElementReference",
                 "name": "panel-7"
-              }
+              },
+              "height": 14,
+              "width": 12,
+              "x": 0,
+              "y": 72
             }
           },
           {
             "kind": "GridLayoutItem",
             "spec": {
-              "x": 12,
-              "y": 72,
-              "width": 12,
-              "height": 14,
               "element": {
                 "kind": "ElementReference",
                 "name": "panel-8"
-              }
+              },
+              "height": 14,
+              "width": 12,
+              "x": 12,
+              "y": 72
             }
           },
           {
             "kind": "GridLayoutItem",
             "spec": {
-              "x": 0,
-              "y": 86,
-              "width": 12,
-              "height": 8,
               "element": {
                 "kind": "ElementReference",
                 "name": "panel-14"
-              }
+              },
+              "height": 8,
+              "width": 12,
+              "x": 0,
+              "y": 86
             }
           }
         ]
@@ -2011,9 +2018,6 @@
     "preload": false,
     "tags": [],
     "timeSettings": {
-      "timezone": "browser",
-      "from": "now-2d",
-      "to": "now",
       "autoRefresh": "",
       "autoRefreshIntervals": [
         "5s",
@@ -2027,8 +2031,11 @@
         "2h",
         "1d"
       ],
+      "fiscalYearStartMonth": 0,
+      "from": "now-2d",
       "hideTimepicker": false,
-      "fiscalYearStartMonth": 0
+      "timezone": "browser",
+      "to": "now"
     },
     "title": "Photovoltaik",
     "variables": []
