@@ -34,6 +34,7 @@ function startup_starts_all_containers_with_credentials_setup() {
 	echo "$grafana_env" | grep -q "GF_SECURITY_ADMIN_PASSWORD=ana"
 	echo "$grafana_env" | grep -q "GF_SECURITY_ADMIN_USER=graf"
 	echo "$grafana_env" | grep -q "GF_AUTH_ANONYMOUS_ENABLED=true"
+	echo "$grafana_env" | grep -q "GF_AUTH_ANONYMOUS_ORG_NAME=Main Org."
 	echo "$grafana_env" | grep -q "GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer"
 
 	echo "$telegraf_env" | grep -q "VM_USER=victoria"
