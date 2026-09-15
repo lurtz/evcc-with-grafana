@@ -17,7 +17,7 @@ services:
     restart: unless-stopped
 
   victoria-metrics:
-    image: docker.io/victoriametrics/victoria-metrics:v1.151.0
+    image: docker.io/victoriametrics/victoria-metrics:v1.152.0
     command: [ "-httpAuth.username", $VICTORIAMETRICS_USER, "-httpAuth.password", $VICTORIAMETRICS_PASSWORD, -retentionPeriod, 100y ]
     ports:
       - "8428:8428"
@@ -26,7 +26,7 @@ services:
     restart: unless-stopped
 
   grafana:
-    image: docker.io/grafana/grafana:13.2.1
+    image: docker.io/grafana/grafana:13.2.2
     ports:
       - '3000:3000'
     volumes:
