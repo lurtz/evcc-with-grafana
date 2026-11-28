@@ -5,8 +5,8 @@
     "name": "c0cf06af-fedf-49b3-af2b-a053381007b6",
     "namespace": "default",
     "uid": "006096c9-c7f2-47ed-bcc7-0492d710c4fe",
-    "resourceVersion": "1788605224349986",
-    "generation": 1,
+    "resourceVersion": "1788648305180002",
+    "generation": 2,
     "creationTimestamp": "2026-09-05T10:47:04Z",
     "labels": {
       "grafana.app/deprecatedInternalID": "2014530637975552"
@@ -16,9 +16,11 @@
       "grafana.app/folder": "cfx99itzm1qtcc",
       "grafana.app/managedBy": "classic-file-provisioning",
       "grafana.app/managerId": "default",
-      "grafana.app/sourceChecksum": "624b1aa8e4ecdebf72701e1876687203",
+      "grafana.app/sourceChecksum": "df4c0bcdf094a87c7da88086b8ac3150",
       "grafana.app/sourcePath": "/etc/grafana/provisioning/dashboards/photovoltaik.json",
-      "grafana.app/sourceTimestamp": "1788605219000",
+      "grafana.app/sourceTimestamp": "1788648300000",
+      "grafana.app/updatedBy": "access-policy:service",
+      "grafana.app/updatedTimestamp": "2026-09-05T22:45:05Z",
       "grafana.app/folderTitle": "Photovoltaik",
       "grafana.app/folderUrl": "/dashboards/f/cfx99itzm1qtcc/photovoltaik"
     }
@@ -289,7 +291,7 @@
                 }
               }
             },
-            "version": "13.2.1"
+            "version": "13.3.1"
           }
         }
       },
@@ -588,7 +590,7 @@
                 }
               }
             },
-            "version": "13.2.1"
+            "version": "13.3.1"
           }
         }
       },
@@ -701,7 +703,8 @@
                       "kind": "DataQuery",
                       "spec": {
                         "editorMode": "code",
-                        "expr": "-(integrate(gridPower_value[24h] offset -1d) / 3600 - ((gridEnergy_value offset -1d - (gridEnergy_value offset 0d)) * 1000))",
+                        "expr": "max(0,-(integrate(gridPower_value[24h] offset -1d) / 3600 - ((gridEnergy_value offset -1d - (gridEnergy_value offset 0d)) * 1000)))",
+                        "format": "time_series",
                         "legendFormat": "Einspeisung",
                         "range": true
                       },
@@ -855,7 +858,7 @@
                 "xTickLabelSpacing": 0
               }
             },
-            "version": "13.2.1"
+            "version": "13.3.1"
           }
         }
       },
@@ -1013,7 +1016,7 @@
                 "textMode": "auto"
               }
             },
-            "version": "13.2.1"
+            "version": "13.3.1"
           }
         }
       },
@@ -1149,7 +1152,7 @@
                 }
               }
             },
-            "version": "13.2.1"
+            "version": "13.3.1"
           }
         }
       },
@@ -1407,7 +1410,7 @@
                 }
               }
             },
-            "version": "13.2.1"
+            "version": "13.3.1"
           }
         }
       },
@@ -1524,7 +1527,7 @@
                 }
               }
             },
-            "version": "13.2.1"
+            "version": "13.3.1"
           }
         }
       },
@@ -1640,7 +1643,7 @@
                 }
               }
             },
-            "version": "13.2.1"
+            "version": "13.3.1"
           }
         }
       },
@@ -1884,7 +1887,7 @@
                 }
               }
             },
-            "version": "13.2.1"
+            "version": "13.3.1"
           }
         }
       }
